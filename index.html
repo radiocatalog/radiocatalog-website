@@ -5,16 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Radio Catalog</title>
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.5.10/css/pico.min.css">
+    <style>
+      body {
+        font-family: "Lucida Console", "Courier New", monospace;
+      }
+
+      .section {
+        margin-bottom: 3rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 1rem;
+        background-color: #f9f9f9;
+      }
+
+      .faq li {
+        margin-bottom: 1.5rem;
+        list-style: none;
+      }
+
+      .faq strong {
+        font-size: 1.1em;
+        display: block;
+        margin-bottom: 0.2em;
+      }
+
+      .faq-answer {
+        padding-left: 1em;
+        color: #444;
+      }
+
+      .logo {
+        max-height: 60px;
+        margin-top: 1rem;
+      }
+
+      .highlight {
+        background: #eef;
+        border-left: 4px solid #88f;
+        padding: 1rem;
+        border-radius: 6px;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 3rem;
+        font-size: 0.9em;
+        color: #666;
+      }
+    </style>
   </head>
   <body>
     <main class="container">
-      <h1>Radio Catalog</h1>
-      <p>
-        An open-source project dedicated to preserving and modernizing
-        long-standing amateur radio software projects.
-      </p>
+      <header class="section">
+        <h1>📻 Radio Catalog</h1>
+        <p>
+          An open-source project supporting the preservation and modernization of
+          long-standing amateur radio software projects.
+        </p>
+      </header>
 
-      <article>
+      <section class="section">
         <h2>What We're Doing</h2>
         <p>
           We are building a software catalog and creating version-controlled
@@ -24,16 +83,88 @@
         </p>
         <p>
           We contact original authors to recover lost or hidden revisions of source
-          code and provide a clean, maintainable archive for the amateur
-          community.
+          code and convert the sources to a git repository, then add it to our Radio
+          Catalog. This provides a clean slate and encourages the continued usage or
+          maintenance of these projects in the amateur radio community.
         </p>
+        <p>
+          Original and unmodified master copies of recovered source code are sent to the
+          <a href="https://archive.org/details/dlarc">Digital Library of Amateur Radio and Communications (DLARC)</a> for permanent archival and public access.
+        </p>
+        <p>
+          In addition to preserving and modernizing these source code repositories,
+          we are also packaging this and introducing this software into the Nixpkgs
+          collection, where it will be further maintained and used by thousands of
+          people. We hope that other package repositories and Linux distributions
+          systems will pick up and use our clean Git repositories
+        </p>
+      </section>
+
+      <section class="section">
         <h2>Key Goals</h2>
-        <ul>
-          <li>Preserve project history using Git and the DLARC archive.</li>
-          <li>Enable future development and iteration.</li>
-          <li>Ensure compatibility with modern operating systems.</li>
+        <div class="grid">
+          <div class="card">📜 Preserve project history using Git and the DLARC archive.</div>
+          <div class="card">🔧 Enable future development and iteration.</div>
+          <div class="card">🖥 Ensure that programs can be used with modern operating systems.</div>
+          <div class="card">📦 Use Nix to package and distribute software more widely, with more reproducibility guarantees.</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Repositories</h2>
+        <div class="grid">
+          <div class="card"><a href="https://github.com/radiocatalog">GitHub: radiocatalog</a></div>
+          <div class="card"><a href="https://gitlab.com/radiocatalog">GitLab: radiocatalog</a></div>
+          <div class="card"><em>🔐 Self-hosted Git coming soon.</em></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>FAQ</h2>
+        <ul class="faq">
+          <li>
+            <strong>What is DLARC?</strong>
+            <div class="faq-answer">The Digital Library of Amateur Radio and Communications is a library of materials and collections related to amateur radio and early communications. We send raw, unmodified master copies of source code we recover there for archival in tarball format. Afterwards we use git to modernize these sources.</div>
+          </li>
+          <li>
+            <strong>What is ARDC?</strong>
+            <div class="faq-answer">Amateur Radio Digital Communications (ARDC) is a foundation that supports amateur radio and digital communications. They fund projects like ours through grants.</div>
+          </li>
+          <li>
+            <strong>Why did we choose Nix?</strong>
+            <div class="faq-answer">We chose Nix because it makes it possible to reproduce, run and distribute software on any modern Linux distribution, as well as potentially Darwin (macOS) and Windows hosts via the WSL (Windows Subsystem for Linux).</div>
+          </li>
+          <li>
+            <strong>What is RadCat? (🐱 + 🕶️ + 📻)</strong>
+            <div class="faq-answer">It's our nickname!</div>
+          </li>
         </ul>
-      </article>
+      </section>
+
+      <section class="section">
+        <h2>Thanks</h2>
+        <div class="highlight">
+          This project was kickstarted by a grant from <a href="https://www.ardc.net" target="_blank">ARDC</a>.
+          ARDC is actively supporting open source and amateur radio projects. If you have an idea, you can apply for a grant just like we did.
+          <a href="https://www.ardc.net/apply/grants/" target="_blank">Apply here.</a>
+          <br>
+          <br>
+          The details of our grant can be viewed by following the link below:
+          <br>
+          <br>
+          <a href="https://www.ardc.net/apply/grants/2024-grants/grant-radio-catalog-ham-radio-software-preservation-and-restoration/" target="_blank">https://www.ardc.net/apply/grants/2024-grants/grant-radio-catalog-ham-radio-software-preservation-and-restoration/</a>
+          <br>
+          <img src="https://www.ardc.net/wp-content/uploads/ARDC-Logo.jpg" alt="Funded by ARDC" class="logo">
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Photos</h2>
+        <p>📷 Coming soon: photos</p>
+      </section>
+      <footer>
+        Radio Catalog
+      </footer>
     </main>
   </body>
 </html>
